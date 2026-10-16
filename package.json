@@ -1,0 +1,13 @@
+{
+  "name": "out-of-distribution",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A league where AI models play strategy games that are not in any training data.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/",
+    "calibrate": "node harness/calibrate.js",
+    "league": "node harness/league.js",
+    "stats": "node harness/stats.js"
+  }
+}

@@ -1,0 +1,744 @@
+{
+ "id": "pilot--claude-opus-5-5--vs--bot-normal--1",
+ "round": "pilot",
+ "game": "afterlight",
+ "engine": "1406955bd4ce",
+ "rules": "2057508a0081",
+ "createdAt": "2026-09-26T16:28:30.063Z",
+ "updatedAt": "2026-09-26T16:49:57.610Z",
+ "players": {
+  "amber": {
+   "id": "claude-opus-5-5",
+   "label": "Claude Opus 5.5",
+   "kind": "model",
+   "vendor": "anthropic",
+   "model": "claude-opus-5-5",
+   "effort": "high"
+  },
+  "blue": {
+   "id": "bot-normal",
+   "label": "Afterlight bot (normal)",
+   "kind": "bot",
+   "vendor": null,
+   "model": null,
+   "effort": null
+  }
+ },
+ "status": "finished",
+ "result": {
+  "winner": "blue",
+  "scores": [
+   3,
+   5
+  ],
+  "reason": "five",
+  "plies": 29
+ },
+ "plies": [
+  {
+   "ply": 0,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 24,
+   "cell": "A5",
+   "commentary": "Flipping A5 to / sets a trap: the spark heading for A4 will drop into A5 and exit west. A second spark is also heading for A3, so Blue can't block both threats and grab its own F2 point on the same turn.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 76530,
+   "calls": [
+    {
+     "latencyMs": 76530,
+     "apiMs": 75758,
+     "usage": {
+      "input": 2,
+      "output": 6879,
+      "cacheRead": 622,
+      "cacheWrite": 2603
+     },
+     "costUsd": 0.15072739999999998,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 1,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 24,
+   "cell": "A5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 8,
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 2,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 23,
+   "cell": "F4",
+   "commentary": "The spark heading into F4 would turn east and score for Blue, so flipping F4 sends it back west instead. My A3 spark is already set to leave by the west edge next turn.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 19516,
+   "calls": [
+    {
+     "latencyMs": 19516,
+     "apiMs": 18569,
+     "usage": {
+      "input": 2,
+      "output": 1850,
+      "cacheRead": 622,
+      "cacheWrite": 2607
+     },
+     "costUsd": 0.0501674,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 3,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 16,
+   "cell": "E3",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 6,
+   "scoresAfter": [
+    1,
+    0
+   ]
+  },
+  {
+   "ply": 4,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 17,
+   "cell": "F3",
+   "commentary": "Flipping F3 while it's empty means the incoming spark turns south, not north into F2's exit. Blue's double threat drops to one, and my spark on A4 still scores next.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 45778,
+   "calls": [
+    {
+     "latencyMs": 45778,
+     "apiMs": 44875,
+     "usage": {
+      "input": 2,
+      "output": 4487,
+      "cacheRead": 622,
+      "cacheWrite": 2590
+     },
+     "costUsd": 0.10282239999999998,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    1,
+    0
+   ]
+  },
+  {
+   "ply": 5,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 7,
+   "cell": "B2",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 5,
+   "scoresAfter": [
+    2,
+    0
+   ]
+  },
+  {
+   "ply": 6,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 34,
+   "cell": "E6",
+   "commentary": "The spark about to land in E6 would roll into F6, bounce off the wall and leave east for Blue. Flipping E6 turns it west toward D6, where it has a chance of reaching my edge.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 76232,
+   "calls": [
+    {
+     "latencyMs": 76232,
+     "apiMs": 74991,
+     "usage": {
+      "input": 2,
+      "output": 7521,
+      "cacheRead": 622,
+      "cacheWrite": 2575
+     },
+     "costUsd": 0.1634274,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    1
+   ]
+  },
+  {
+   "ply": 7,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 17,
+   "cell": "F3",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 5,
+   "scoresAfter": [
+    2,
+    2
+   ]
+  },
+  {
+   "ply": 8,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 26,
+   "cell": "C5",
+   "commentary": "Setting C5 early opens a west route for the D6 spark: C6, C5, then B5 toward my edge. Blue can undo it, but I get the last say on C5 before the spark arrives, so that would only cost Blue a move.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 355824,
+   "calls": [
+    {
+     "latencyMs": 355824,
+     "apiMs": 355044,
+     "usage": {
+      "input": 2,
+      "output": 29697,
+      "cacheRead": 622,
+      "cacheWrite": 2540
+     },
+     "costUsd": 0.6067724000000001,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    2
+   ]
+  },
+  {
+   "ply": 9,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 9,
+   "cell": "D2",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 4,
+   "scoresAfter": [
+    2,
+    2
+   ]
+  },
+  {
+   "ply": 10,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 17,
+   "cell": "F3",
+   "commentary": "Flipping F3 turns the spark that lands there south onto F4 instead of north to F2's open exit. Blue must spend their next flip on F4, and my other two sparks keep heading west.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 74252,
+   "calls": [
+    {
+     "latencyMs": 74252,
+     "apiMs": 72708,
+     "usage": {
+      "input": 2,
+      "output": 7107,
+      "cacheRead": 0,
+      "cacheWrite": 3159
+     },
+     "costUsd": 0.157943,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    3
+   ]
+  },
+  {
+   "ply": 11,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 23,
+   "cell": "F4",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 4,
+   "scoresAfter": [
+    2,
+    3
+   ]
+  },
+  {
+   "ply": 12,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 20,
+   "cell": "C4",
+   "commentary": "The F4 spark goes to Blue whatever I do. Flipping C4 turns the central spark south into C5, which currently points west, so Blue has to spend a flip. My B4 spark still heads west toward my edge.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 254107,
+   "calls": [
+    {
+     "latencyMs": 254107,
+     "apiMs": 252485,
+     "usage": {
+      "input": 2,
+      "output": 24523,
+      "cacheRead": 622,
+      "cacheWrite": 2520
+     },
+     "costUsd": 0.5031924000000001,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    4
+   ]
+  },
+  {
+   "ply": 13,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 25,
+   "cell": "B5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 7,
+   "scoresAfter": [
+    2,
+    4
+   ]
+  },
+  {
+   "ply": 14,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 12,
+   "cell": "A3",
+   "commentary": "The A4 spark moves north into A3 next. Flipping A3 to '\\' means it then turns west into my collector (3-4) instead of heading east toward Blue.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 15986,
+   "calls": [
+    {
+     "latencyMs": 15986,
+     "apiMs": 14450,
+     "usage": {
+      "input": 2,
+      "output": 1311,
+      "cacheRead": 622,
+      "cacheWrite": 2503
+     },
+     "costUsd": 0.0388674,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    4
+   ]
+  },
+  {
+   "ply": 15,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 30,
+   "cell": "A6",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 5,
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 16,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 26,
+   "cell": "C5",
+   "commentary": "The spark drops from C4 into C5, which now points west. Blue has to find the flip back to east every turn, and one slip sends the light home to Amber.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 71489,
+   "calls": [
+    {
+     "latencyMs": 71489,
+     "apiMs": 70379,
+     "usage": {
+      "input": 2,
+      "output": 6157,
+      "cacheRead": 622,
+      "cacheWrite": 2487
+     },
+     "costUsd": 0.13570739999999998,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 17,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 26,
+   "cell": "C5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 5,
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 18,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 35,
+   "cell": "F6",
+   "commentary": "The spark is headed for D5, which already sends it south. I'm using my free flip to set F6 to /, so Blue has to flip a switch at every step or the spark goes west.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 92485,
+   "calls": [
+    {
+     "latencyMs": 92485,
+     "apiMs": 90255,
+     "usage": {
+      "input": 2,
+      "output": 6922,
+      "cacheRead": 622,
+      "cacheWrite": 2486
+     },
+     "costUsd": 0.1510024,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 19,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 33,
+   "cell": "D6",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 6,
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 20,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 34,
+   "cell": "E6",
+   "commentary": "If E6 stays as it is, the spark bounces there and ends up going out east. Flipping E6 sends it north to E5 instead, so Blue must flip E5 to keep steering it east.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 46649,
+   "calls": [
+    {
+     "latencyMs": 46649,
+     "apiMs": 45430,
+     "usage": {
+      "input": 2,
+      "output": 3840,
+      "cacheRead": 622,
+      "cacheWrite": 2486
+     },
+     "costUsd": 0.0893624,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 21,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 32,
+   "cell": "C6",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 7,
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 22,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 27,
+   "cell": "D5",
+   "commentary": "Flipping D5 sends the spark north to D4, where the switch currently turns it west toward my edge. Blue has to flip D4 right away to keep pushing it east.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 68153,
+   "calls": [
+    {
+     "latencyMs": 68153,
+     "apiMs": 67127,
+     "usage": {
+      "input": 2,
+      "output": 5034,
+      "cacheRead": 622,
+      "cacheWrite": 2487
+     },
+     "costUsd": 0.1132474,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 23,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 21,
+   "cell": "D4",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 5,
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 24,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": 22,
+   "cell": "E4",
+   "commentary": "Flipping E4 turns the spark south into E5 instead of north. Blue now has to flip switches on purpose (E5, then F6) to send it east; if Blue slips, the light turns west toward my edge.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 53160,
+   "calls": [
+    {
+     "latencyMs": 53160,
+     "apiMs": 52055,
+     "usage": {
+      "input": 2,
+      "output": 4042,
+      "cacheRead": 622,
+      "cacheWrite": 2487
+     },
+     "costUsd": 0.09340739999999999,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 25,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 28,
+   "cell": "E5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 6,
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 26,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": null,
+   "cell": "PASS",
+   "commentary": "The last spark has to land in F5. Leaving F5 as \\ sends it south into F6, which is set to send it west, so Blue must find the one winning flip there. If I flipped F5, the spark would go north into F4, which already exits east.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 29314,
+   "calls": [
+    {
+     "latencyMs": 29314,
+     "apiMs": 28429,
+     "usage": {
+      "input": 2,
+      "output": 2556,
+      "cacheRead": 622,
+      "cacheWrite": 2486
+     },
+     "costUsd": 0.0636824,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 27,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 35,
+   "cell": "F6",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 9,
+   "scoresAfter": [
+    3,
+    4
+   ]
+  },
+  {
+   "ply": 28,
+   "side": "amber",
+   "player": "claude-opus-5-5",
+   "move": null,
+   "cell": "PASS",
+   "commentary": "Blue's flip of F6 settled it: the last spark enters from the north on a '\\' switch and must exit east. F6 can't be flipped while it holds the spark, so no move saves Amber. Well played, Blue.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 7954,
+   "calls": [
+    {
+     "latencyMs": 7954,
+     "apiMs": 6786,
+     "usage": {
+      "input": 2,
+      "output": 536,
+      "cacheRead": 622,
+      "cacheWrite": 2486
+     },
+     "costUsd": 0.0232824,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    3,
+    5
+   ]
+  }
+ ]
+}

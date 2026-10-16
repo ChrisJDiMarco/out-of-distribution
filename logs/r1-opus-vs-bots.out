@@ -1,0 +1,52 @@
+[18:21:00] league: 4 match(es), concurrency 4
+[18:21:17] r1--bot-normal--vs--claude-opus-5-5--1 t2 Claude Opus 5.5 F2 16s  0-0  "The F3 spark moves north into F2 this advance. Setting F2 to / now means it turns east nex"
+[18:21:54] r1--bot-hard--vs--claude-opus-5-5--1 t2 Claude Opus 5.5 A5 53s  0-0  "Flipping A5 back to \ so the spark dropping in from A4 turns east into B5 instead of leavi"
+[18:22:03] r1--claude-opus-5-5--vs--bot-normal--1 t1 Claude Opus 5.5 A5 63s  0-0  "Setting A5 to '/' makes two threats down column A: the spark heading into A4 drops through"
+[18:22:21] r1--claude-opus-5-5--vs--bot-normal--1 t3 Claude Opus 5.5 F4 18s  0-0  "Flipping F4 while it's empty, so the spark about to land there turns west instead of leavi"
+[18:22:33] r1--claude-opus-5-5--vs--bot-hard--1 t1 Claude Opus 5.5 A5 93s  0-0  "Setting A5 to / now: the spark heading for A4 will turn south into A5 and exit west. A sec"
+[18:22:35] r1--bot-normal--vs--claude-opus-5-5--1 t4 Claude Opus 5.5 F5 78s  1-1  "Setting F5 to '\' so the spark falling from F4 into F5 exits east for Blue. Amber must spe"
+[18:23:15] r1--claude-opus-5-5--vs--bot-normal--1 t5 Claude Opus 5.5 F3 54s  1-0  "The spark on A4 is already set to exit west for my second point. Flipping F3 sends Blue's "
+[18:23:28] r1--claude-opus-5-5--vs--bot-hard--1 t3 Claude Opus 5.5 A3 55s  1-0  "Flipping A3 to \ means the spark climbing into A3 turns west and scores next advance. It a"
+[18:23:41] r1--bot-hard--vs--claude-opus-5-5--1 t4 Claude Opus 5.5 E3 108s  1-0  "E3 gets locked once the E2 spark lands on it, so this flip turns that spark east for good."
+[18:23:42] r1--bot-normal--vs--claude-opus-5-5--1 t6 Claude Opus 5.5 F6 68s  2-1  "Amber scores A4 now, but my F4 spark goes out east next advance. Setting F6 to \ makes the"
+[18:23:53] r1--claude-opus-5-5--vs--bot-hard--1 t5 Claude Opus 5.5 A4 25s  2-1  "I'm flipping A4 back to /. The spark coming in from A3 lands there heading south, and / se"
+[18:24:18] r1--bot-normal--vs--claude-opus-5-5--1 t8 Claude Opus 5.5 B2 35s  2-2  "The B3 spark lands in B2 heading north. Flipping B2 to / sends it east toward my edge inst"
+[18:24:18] r1--claude-opus-5-5--vs--bot-normal--1 t7 Claude Opus 5.5 E6 63s  2-1  "Blue's F4 sparks will score whatever I do, but the spark arriving at E6 would bounce off F"
+[18:24:42] r1--bot-hard--vs--claude-opus-5-5--1 t6 Claude Opus 5.5 B3 60s  2-0  "F4 already sends two sparks east, and Amber can't touch it while it's occupied. Flipping B"
+[18:25:47] r1--bot-hard--vs--claude-opus-5-5--1 t8 Claude Opus 5.5 E2 65s  2-2  "F4 scores now, F6 bounces off the wall and scores two advances later, and E5's spark reach"
+[18:26:19] r1--bot-normal--vs--claude-opus-5-5--1 t10 Claude Opus 5.5 D2 121s  2-2  "The E1 spark is heading into the F1 corner, which is safe for Blue. Flipping D2 makes a se"
+[18:26:35] r1--bot-hard--vs--claude-opus-5-5--1 t10 Claude Opus 5.5 PASS 48s  2-3  "No flip needed: F6 scores now and F5 follows through F6 next turn. The E2 spark heads via "
+[18:26:46] r1--bot-hard--vs--claude-opus-5-5--1 t12 Claude Opus 5.5 F2 12s  2-4  "Flipping F2 to \ catches the F1 spark as it drops south. Once it sits in F2, Amber can't f"
+[18:26:46] r1--bot-hard--vs--claude-opus-5-5--1: finished blue 2-5 (five, 13 turns)
+[18:26:47] r1--claude-opus-5-5--vs--bot-normal--1 t9 Claude Opus 5.5 C5 149s  2-2  "Blue's F3 spark will score for Blue whichever way I route it. So I'm setting C5 now to tur"
+[18:27:56] r1--claude-opus-5-5--vs--bot-normal--1 t11 Claude Opus 5.5 F2 70s  2-3  "The F3 spark is about to swing north into F2 and out to Blue. Flipping F2 turns it west in"
+[18:31:16] r1--bot-normal--vs--claude-opus-5-5--1 t12 Claude Opus 5.5 B4 297s  2-2  "F1's spark is locked in to score for me next turn. Flipping B4 makes the B5 spark swing ea"
+[18:31:23] r1--claude-opus-5-5--vs--bot-hard--1 t7 Claude Opus 5.5 C6 449s  3-3  "Both sparks already head for west-leaning switches, so Blue can only stop one. Flipping C6"
+[18:31:35] r1--claude-opus-5-5--vs--bot-normal--1 t13 Claude Opus 5.5 C4 219s  2-4  "Flipping C4 sends the D4 spark south into C5, where the switch would turn it back west. Bl"
+[18:31:57] r1--claude-opus-5-5--vs--bot-normal--1 t15 Claude Opus 5.5 A3 22s  2-4  "Flipping A3 to \ means the A4 spark turns north into A3 and then goes west next advance. O"
+[18:32:51] r1--bot-normal--vs--claude-opus-5-5--1 t14 Claude Opus 5.5 C3 95s  2-3  "Flipping C3 to \ turns the C2 spark east into D3. Left alone, it was heading west through "
+[18:33:24] r1--claude-opus-5-5--vs--bot-normal--1 t17 Claude Opus 5.5 C5 86s  3-4  "The spark heads east into C4, which turns it south into C5. I've set C5 to send it west, s"
+[18:35:06] r1--claude-opus-5-5--vs--bot-normal--1 t19 Claude Opus 5.5 F4 102s  3-4  "Blue controls the key turns, so I'm setting traps: F4 now sends the spark west, like D6 an"
+[18:35:50] r1--claude-opus-5-5--vs--bot-normal--1 t21 Claude Opus 5.5 E6 44s  3-4  "Flipping E6 turns the spark north into E5. E5 currently sends it west, so Blue has to find"
+[18:36:17] r1--claude-opus-5-5--vs--bot-normal--1 t23 Claude Opus 5.5 F5 28s  3-4  "Flipping F5 sends the spark north into F4, where the current switch turns it west. Blue no"
+[18:36:18] r1--bot-normal--vs--claude-opus-5-5--1 t16 Claude Opus 5.5 B5 207s  2-3  "The spark heading for the far corner would reach A6, where Amber can collect it without sp"
+[18:36:26] r1--claude-opus-5-5--vs--bot-hard--1 t9 Claude Opus 5.5 C1 303s  3-3  "Both sparks already head west, so my flip is free. Blue must fix B6 or lose the A6 corner "
+[18:36:28] r1--claude-opus-5-5--vs--bot-normal--1 t25 Claude Opus 5.5 PASS 11s  3-5  "Blue's F4 flip settles it: the spark heading north hits a / switch, turns east and leaves "
+[18:36:28] r1--claude-opus-5-5--vs--bot-normal--1: finished blue 3-5 (five, 25 turns)
+[18:37:58] r1--bot-normal--vs--claude-opus-5-5--1 t18 Claude Opus 5.5 E1 99s  2-3  "Flipping E1 sends the E2 spark into F1. From there it leaves east whatever Amber does, eit"
+[18:38:41] r1--bot-normal--vs--claude-opus-5-5--1 t20 Claude Opus 5.5 A1 43s  3-3  "F1's spark bounces and exits east next advance for my 4th point. Flipping A1 turns the las"
+[18:38:49] r1--bot-normal--vs--claude-opus-5-5--1 t22 Claude Opus 5.5 PASS 8s  4-4  "The last spark is in A2 heading south on a `/` switch, so it's certain to exit west to Amb"
+[18:38:49] r1--bot-normal--vs--claude-opus-5-5--1: finished draw 4-4 (four-all, 22 turns)
+[18:40:10] r1--claude-opus-5-5--vs--bot-hard--1 t11 Claude Opus 5.5 B5 225s  3-3  "Both sparks are heading west and Blue can block only one. Setting B5 means a spark pushed "
+[18:44:02] r1--claude-opus-5-5--vs--bot-hard--1 t13 Claude Opus 5.5 PASS 232s  3-3  "Both sparks already head west: one via C1 and B1 toward A1, the other via B6 into A6. Blue"
+[18:45:27] r1--claude-opus-5-5--vs--bot-hard--1 t15 Claude Opus 5.5 PASS 85s  3-3  "The C1 spark is already headed my way: B1 bounces it back off the north wall into A1. I mo"
+[18:45:48] r1--claude-opus-5-5--vs--bot-hard--1 t17 Claude Opus 5.5 A1 21s  3-3  "Flipping A1 back to \ locks in a point: the B1 spark enters A1, bounces off the north wall"
+[18:46:53] r1--claude-opus-5-5--vs--bot-hard--1 t19 Claude Opus 5.5 E6 64s  4-3  "A1 spark exits west this advance, putting me on 4. The other spark goes E5 then south into"
+[18:47:22] r1--claude-opus-5-5--vs--bot-hard--1 t21 Claude Opus 5.5 F6 29s  4-3  "Leaving F6 as \ lets the spark bounce there and leave east for sure. Setting F6 to / sends"
+[18:47:30] r1--claude-opus-5-5--vs--bot-hard--1 t23 Claude Opus 5.5 PASS 8s  4-4  "Blue's F5 flip locked it in: the last spark turns east on F5's '/' and goes to Blue. I can"
+[18:47:30] r1--claude-opus-5-5--vs--bot-hard--1: finished draw 4-4 (four-all, 23 turns)
+[18:47:30] league done:
+  r1--bot-hard--vs--claude-opus-5-5--1: blue 2-5 (five)
+  r1--claude-opus-5-5--vs--bot-normal--1: blue 3-5 (five)
+  r1--bot-normal--vs--claude-opus-5-5--1: draw 4-4 (four-all)
+  r1--claude-opus-5-5--vs--bot-hard--1: draw 4-4 (four-all)

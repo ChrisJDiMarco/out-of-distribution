@@ -1,0 +1,235 @@
+{
+ "id": "dev--bot-hard--vs--bot-normal--1",
+ "round": "dev",
+ "game": "afterlight",
+ "engine": "1406955bd4ce",
+ "rules": "2057508a0081",
+ "prompt": 2,
+ "createdAt": "2026-09-26T16:38:42.817Z",
+ "updatedAt": "2026-09-26T16:38:42.953Z",
+ "players": {
+  "amber": {
+   "id": "bot-hard",
+   "label": "Afterlight bot (hard)",
+   "kind": "bot",
+   "vendor": null,
+   "model": null,
+   "effort": null
+  },
+  "blue": {
+   "id": "bot-normal",
+   "label": "Afterlight bot (normal)",
+   "kind": "bot",
+   "vendor": null,
+   "model": null,
+   "effort": null
+  }
+ },
+ "status": "finished",
+ "result": {
+  "winner": "blue",
+  "scores": [
+   2,
+   5
+  ],
+  "reason": "five",
+  "plies": 13
+ },
+ "plies": [
+  {
+   "ply": 0,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 24,
+   "cell": "A5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 35,
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 1,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 24,
+   "cell": "A5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 4,
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 2,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 23,
+   "cell": "F4",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 13,
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 3,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 16,
+   "cell": "E3",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 3,
+   "scoresAfter": [
+    1,
+    0
+   ]
+  },
+  {
+   "ply": 4,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 17,
+   "cell": "F3",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 19,
+   "scoresAfter": [
+    1,
+    0
+   ]
+  },
+  {
+   "ply": 5,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 7,
+   "cell": "B2",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 2,
+   "scoresAfter": [
+    2,
+    0
+   ]
+  },
+  {
+   "ply": 6,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 22,
+   "cell": "E4",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 16,
+   "scoresAfter": [
+    2,
+    1
+   ]
+  },
+  {
+   "ply": 7,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 10,
+   "cell": "E2",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 4,
+   "scoresAfter": [
+    2,
+    2
+   ]
+  },
+  {
+   "ply": 8,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 5,
+   "cell": "F1",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 11,
+   "scoresAfter": [
+    2,
+    2
+   ]
+  },
+  {
+   "ply": 9,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 5,
+   "cell": "F1",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 3,
+   "scoresAfter": [
+    2,
+    3
+   ]
+  },
+  {
+   "ply": 10,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 5,
+   "cell": "F1",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 11,
+   "scoresAfter": [
+    2,
+    4
+   ]
+  },
+  {
+   "ply": 11,
+   "side": "blue",
+   "player": "bot-normal",
+   "move": 11,
+   "cell": "F2",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 3,
+   "scoresAfter": [
+    2,
+    4
+   ]
+  },
+  {
+   "ply": 12,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": null,
+   "cell": "PASS",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 0,
+   "scoresAfter": [
+    2,
+    5
+   ]
+  }
+ ]
+}

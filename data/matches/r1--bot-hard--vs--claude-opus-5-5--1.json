@@ -1,0 +1,343 @@
+{
+ "id": "r1--bot-hard--vs--claude-opus-5-5--1",
+ "round": "opus-vs-bots",
+ "game": "afterlight",
+ "engine": "1406955bd4ce",
+ "rules": "2057508a0081",
+ "prompt": 2,
+ "createdAt": "2026-09-26T18:21:00.700Z",
+ "updatedAt": "2026-09-26T18:26:46.732Z",
+ "players": {
+  "amber": {
+   "id": "bot-hard",
+   "label": "Afterlight bot (hard)",
+   "kind": "bot",
+   "vendor": null,
+   "model": null,
+   "effort": null
+  },
+  "blue": {
+   "id": "claude-opus-5-5",
+   "label": "Claude Opus 5.5",
+   "kind": "model",
+   "vendor": "anthropic",
+   "model": "claude-opus-5-5",
+   "effort": "high"
+  }
+ },
+ "status": "finished",
+ "result": {
+  "winner": "blue",
+  "scores": [
+   2,
+   5
+  ],
+  "reason": "five",
+  "plies": 13
+ },
+ "plies": [
+  {
+   "ply": 0,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 24,
+   "cell": "A5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 47,
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 1,
+   "side": "blue",
+   "player": "claude-opus-5-5",
+   "move": 24,
+   "cell": "A5",
+   "commentary": "Flipping A5 back to \\ so the spark dropping in from A4 turns east into B5 instead of leaving across Amber's west edge. That also leaves me a threat at F4 that Amber will need to deal with.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 53266,
+   "calls": [
+    {
+     "latencyMs": 53266,
+     "apiMs": 51664,
+     "usage": {
+      "input": 2,
+      "output": 4270,
+      "cacheRead": 0,
+      "cacheWrite": 3269
+     },
+     "costUsd": 0.101753,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 2,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 23,
+   "cell": "F4",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 15,
+   "scoresAfter": [
+    0,
+    0
+   ]
+  },
+  {
+   "ply": 3,
+   "side": "blue",
+   "player": "claude-opus-5-5",
+   "move": 16,
+   "cell": "E3",
+   "commentary": "E3 gets locked once the E2 spark lands on it, so this flip turns that spark east for good. It heads for F3 and then F2, which forces Amber to spend her turn on F3, while my F4 route stays set up.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 107755,
+   "calls": [
+    {
+     "latencyMs": 107755,
+     "apiMs": 106847,
+     "usage": {
+      "input": 2,
+      "output": 8983,
+      "cacheRead": 622,
+      "cacheWrite": 2647
+     },
+     "costUsd": 0.1930274,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    1,
+    0
+   ]
+  },
+  {
+   "ply": 4,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 17,
+   "cell": "F3",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 18,
+   "scoresAfter": [
+    1,
+    0
+   ]
+  },
+  {
+   "ply": 5,
+   "side": "blue",
+   "player": "claude-opus-5-5",
+   "move": 13,
+   "cell": "B3",
+   "commentary": "F4 already sends two sparks east, and Amber can't touch it while it's occupied. Flipping B3 stops the spark coming out of A3 from taking the northern route back to Amber's edge.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 60477,
+   "calls": [
+    {
+     "latencyMs": 60477,
+     "apiMs": 59485,
+     "usage": {
+      "input": 2,
+      "output": 5082,
+      "cacheRead": 622,
+      "cacheWrite": 2631
+     },
+     "costUsd": 0.11492739999999999,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    0
+   ]
+  },
+  {
+   "ply": 6,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 22,
+   "cell": "E4",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 15,
+   "scoresAfter": [
+    2,
+    1
+   ]
+  },
+  {
+   "ply": 7,
+   "side": "blue",
+   "player": "claude-opus-5-5",
+   "move": 10,
+   "cell": "E2",
+   "commentary": "F4 scores now, F6 bounces off the wall and scores two advances later, and E5's spark reaches the east edge either way. Flipping E2 sets up a route through E1 and F1 for a possible fifth point.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 65009,
+   "calls": [
+    {
+     "latencyMs": 65009,
+     "apiMs": 64009,
+     "usage": {
+      "input": 2,
+      "output": 5430,
+      "cacheRead": 622,
+      "cacheWrite": 2595
+     },
+     "costUsd": 0.1217074,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    2
+   ]
+  },
+  {
+   "ply": 8,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 5,
+   "cell": "F1",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 10,
+   "scoresAfter": [
+    2,
+    2
+   ]
+  },
+  {
+   "ply": 9,
+   "side": "blue",
+   "player": "claude-opus-5-5",
+   "move": null,
+   "cell": "PASS",
+   "commentary": "No flip needed: F6 scores now and F5 follows through F6 next turn. The E2 spark heads via E1 to F1, and wherever Amber sets F1, it leaves east for my 5th point.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 47710,
+   "calls": [
+    {
+     "latencyMs": 47710,
+     "apiMs": 46836,
+     "usage": {
+      "input": 2,
+      "output": 3932,
+      "cacheRead": 622,
+      "cacheWrite": 2578
+     },
+     "costUsd": 0.09166239999999998,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    3
+   ]
+  },
+  {
+   "ply": 10,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": 25,
+   "cell": "B5",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 15,
+   "scoresAfter": [
+    2,
+    4
+   ]
+  },
+  {
+   "ply": 11,
+   "side": "blue",
+   "player": "claude-opus-5-5",
+   "move": 11,
+   "cell": "F2",
+   "commentary": "Flipping F2 to \\ catches the F1 spark as it drops south. Once it sits in F2, Amber can't flip it back, so next advance it leaves east for Blue's winning fifth point.",
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 11677,
+   "calls": [
+    {
+     "latencyMs": 11677,
+     "apiMs": 10657,
+     "usage": {
+      "input": 2,
+      "output": 918,
+      "cacheRead": 622,
+      "cacheWrite": 2543
+     },
+     "costUsd": 0.031207400000000003,
+     "servedBy": [
+      "claude-opus-5-5"
+     ],
+     "toolUse": [],
+     "error": null
+    }
+   ],
+   "scoresAfter": [
+    2,
+    4
+   ]
+  },
+  {
+   "ply": 12,
+   "side": "amber",
+   "player": "bot-hard",
+   "move": null,
+   "cell": "PASS",
+   "commentary": null,
+   "attempts": 1,
+   "fumble": false,
+   "latencyMs": 0,
+   "scoresAfter": [
+    2,
+    5
+   ]
+  }
+ ]
+}

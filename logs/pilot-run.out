@@ -1,0 +1,19 @@
+[16:28:30] league: 1 match(es), concurrency 1
+[16:29:46] pilot--claude-opus-5-5--vs--bot-normal--1 t1 Claude Opus 5.5 A5 77s  0-0  "Flipping A5 to / sets a trap: the spark heading for A4 will drop into A5 and exit west. A "
+[16:30:06] pilot--claude-opus-5-5--vs--bot-normal--1 t3 Claude Opus 5.5 F4 20s  0-0  "The spark heading into F4 would turn east and score for Blue, so flipping F4 sends it back"
+[16:30:51] pilot--claude-opus-5-5--vs--bot-normal--1 t5 Claude Opus 5.5 F3 46s  1-0  "Flipping F3 while it's empty means the incoming spark turns south, not north into F2's exi"
+[16:32:08] pilot--claude-opus-5-5--vs--bot-normal--1 t7 Claude Opus 5.5 E6 76s  2-1  "The spark about to land in E6 would roll into F6, bounce off the wall and leave east for B"
+[16:38:03] pilot--claude-opus-5-5--vs--bot-normal--1 t9 Claude Opus 5.5 C5 356s  2-2  "Setting C5 early opens a west route for the D6 spark: C6, C5, then B5 toward my edge. Blue"
+[16:39:18] pilot--claude-opus-5-5--vs--bot-normal--1 t11 Claude Opus 5.5 F3 74s  2-3  "Flipping F3 turns the spark that lands there south onto F4 instead of north to F2's open e"
+[16:43:32] pilot--claude-opus-5-5--vs--bot-normal--1 t13 Claude Opus 5.5 C4 254s  2-4  "The F4 spark goes to Blue whatever I do. Flipping C4 turns the central spark south into C5"
+[16:43:48] pilot--claude-opus-5-5--vs--bot-normal--1 t15 Claude Opus 5.5 A3 16s  2-4  "The A4 spark moves north into A3 next. Flipping A3 to '\' means it then turns west into my"
+[16:44:59] pilot--claude-opus-5-5--vs--bot-normal--1 t17 Claude Opus 5.5 C5 71s  3-4  "The spark drops from C4 into C5, which now points west. Blue has to find the flip back to "
+[16:46:32] pilot--claude-opus-5-5--vs--bot-normal--1 t19 Claude Opus 5.5 F6 92s  3-4  "The spark is headed for D5, which already sends it south. I'm using my free flip to set F6"
+[16:47:18] pilot--claude-opus-5-5--vs--bot-normal--1 t21 Claude Opus 5.5 E6 47s  3-4  "If E6 stays as it is, the spark bounces there and ends up going out east. Flipping E6 send"
+[16:48:27] pilot--claude-opus-5-5--vs--bot-normal--1 t23 Claude Opus 5.5 D5 68s  3-4  "Flipping D5 sends the spark north to D4, where the switch currently turns it west toward m"
+[16:49:20] pilot--claude-opus-5-5--vs--bot-normal--1 t25 Claude Opus 5.5 E4 53s  3-4  "Flipping E4 turns the spark south into E5 instead of north. Blue now has to flip switches "
+[16:49:49] pilot--claude-opus-5-5--vs--bot-normal--1 t27 Claude Opus 5.5 PASS 29s  3-4  "The last spark has to land in F5. Leaving F5 as \ sends it south into F6, which is set to "
+[16:49:57] pilot--claude-opus-5-5--vs--bot-normal--1 t29 Claude Opus 5.5 PASS 8s  3-5  "Blue's flip of F6 settled it: the last spark enters from the north on a '\' switch and mus"
+[16:49:57] pilot--claude-opus-5-5--vs--bot-normal--1: finished blue 3-5 (five, 29 turns)
+[16:49:57] league done:
+  pilot--claude-opus-5-5--vs--bot-normal--1: blue 3-5 (five)

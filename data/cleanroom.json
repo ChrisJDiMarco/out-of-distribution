@@ -1,0 +1,7 @@
+{
+  "checkedAt": "2026-09-26",
+  "games": 5002,
+  "plies": 129597,
+  "detail": "3,000 random-vs-random games (94,632 turns), 2,000 easy-bot-vs-random games (34,952 turns), and two targeted scenarios (repetition draw, 200-turn cap). At every turn the clean-room simulator parsed the exact prompt text, predicted the next position from the rulebook alone, and matched the engine on switches, sparks, scores, legal moves and repetition counts.",
+  "mutantsCaught": 6
+}

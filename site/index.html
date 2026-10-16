@@ -1,0 +1,377 @@
+<title>Out of Distribution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --night: #070d15;
+    --deep: #0b1420;
+    --slate: #111d2a;
+    --raise: #17242f;
+    --line: #1f2f3f;
+    --line-soft: #172636;
+    --ink: #e8eef3;
+    --soft: #cfd9e2;
+    --mist: #93a3b3;
+    --faint: #62748a;
+    --amber: #f0b769;
+    --ice: #8dd4ed;
+    --spark: #fbfdff;
+    --bad: #f08a7a;
+    --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    --body: "Hanken Grotesk", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --radius: 14px;
+  }
+  html, body { height: 100%; }
+  body { background: var(--deep); color: var(--ink); font: 400 15px/1.5 var(--body); -webkit-font-smoothing: antialiased; }
+  :focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; border-radius: 6px; }
+  button { font: inherit; }
+  a { color: var(--ice); text-underline-offset: 3px; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  .amber { color: var(--amber); }
+  .ice { color: var(--ice); }
+
+  /* ---------- The game (full screen) ---------- */
+  .app { height: 100%; min-height: 520px; display: flex; flex-direction: column; }
+  .rim { width: 100%; max-width: 980px; margin-inline: auto; padding-inline: 16px; }
+  .bar { display: flex; align-items: center; gap: 10px; padding-block: 12px 10px; }
+  .bar .grow { flex: 1 1 auto; min-width: 0; display: flex; justify-content: flex-end; }
+  .modes, .levels { display: inline-flex; background: var(--night); border: 1px solid var(--line); border-radius: 999px; padding: 3px; flex: none; }
+  .modes button { font-weight: 600; font-size: 13px; color: var(--mist); background: none; border: 0; border-radius: 999px; padding: 8px 15px; cursor: pointer; }
+  .levels button { font: 500 12px/1 var(--mono); color: var(--mist); background: none; border: 0; border-radius: 999px; padding: 8px 10px; cursor: pointer; }
+  .modes button[aria-pressed="true"], .levels button[aria-pressed="true"] { background: var(--raise); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+  select { font: 500 13px/1.2 var(--body); color: var(--ink); background: var(--night); border: 1px solid var(--line); border-radius: 10px; padding: 9px 32px 9px 12px; min-width: 0; max-width: 100%; appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--mist) 50%), linear-gradient(135deg, var(--mist) 50%, transparent 50%); background-position: calc(100% - 16px) 55%, calc(100% - 11px) 55%; background-size: 5px 5px; background-repeat: no-repeat; }
+  .icon-btn { width: 38px; height: 38px; flex: none; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); background: var(--night); color: var(--mist); cursor: pointer; font: 600 16px/1 var(--display); }
+  .icon-btn:hover { color: var(--ink); background: var(--raise); }
+
+  .scorebug { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); background: var(--night); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .team { display: flex; align-items: center; gap: 10px; padding: 8px 12px; min-width: 0; }
+  .team.b { flex-direction: row-reverse; text-align: right; }
+  .team .bar-c { width: 4px; align-self: stretch; border-radius: 2px; flex: none; }
+  .team.a .bar-c { background: var(--amber); }
+  .team.b .bar-c { background: var(--ice); }
+  .team .name { font: 800 17px/1.05 var(--display); letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .team .pts { font: 900 32px/1 var(--display); margin-left: auto; font-feature-settings: "tnum"; }
+  .team.b .pts { margin-left: 0; margin-right: auto; }
+  .team.a .pts { color: var(--amber); }
+  .team.b .pts { color: var(--ice); }
+  .team.turn .name::after { content: " \25CF"; font-size: .7em; vertical-align: .15em; }
+  .team.a.turn .name::after { color: var(--amber); }
+  .team.b.turn .name::after { color: var(--ice); }
+  .clock { display: grid; place-items: center; padding: 6px 14px; border-inline: 1px solid var(--line); min-width: 70px; }
+  .clock .k { font: 500 9px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+  .clock .v { font: 800 20px/1 var(--display); letter-spacing: .04em; font-feature-settings: "tnum"; }
+
+  .stage-wrap { position: relative; flex: 1 1 0; min-height: 260px; }
+  .stage { position: absolute; inset: 0; }
+  .nogl { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--mist); }
+  .big-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 84px; height: 84px; border-radius: 50%; border: 0; cursor: pointer; background: rgba(251, 253, 255, .92); color: var(--night); display: grid; place-items: center; box-shadow: 0 0 0 10px rgba(251, 253, 255, .12), 0 12px 40px rgba(0, 0, 0, .5); transition: transform .15s ease; }
+  .big-play:hover { transform: translate(-50%, -50%) scale(1.05); }
+  .big-play svg { width: 30px; height: 30px; fill: currentColor; margin-left: 5px; }
+  .thinking { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; font: 500 12px/1 var(--mono); background: rgba(7, 13, 21, .8); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px 8px 10px; pointer-events: none; white-space: nowrap; }
+  .thinking .dot { width: 10px; height: 10px; border-radius: 50%; animation: pulse 1s ease-in-out infinite; }
+  .thinking.s0 .dot { background: var(--amber); box-shadow: 0 0 12px var(--amber); }
+  .thinking.s1 .dot { background: var(--ice); box-shadow: 0 0 12px var(--ice); }
+  @keyframes pulse { 50% { transform: scale(.55); opacity: .6; } }
+
+  /* Moves panel: the turn-by-turn list, over the right side of the board */
+  .moves { position: absolute; top: 8px; right: 12px; bottom: 8px; width: min(360px, calc(100% - 24px)); display: flex; flex-direction: column; background: rgba(9, 16, 25, .94); backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .moves-head { display: flex; align-items: start; gap: 10px; padding: 12px 12px 10px 16px; border-bottom: 1px solid var(--line-soft); }
+  .moves-head div { flex: 1; min-width: 0; }
+  .moves-head h2 { font: 800 17px/1.1 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+  .moves-head p { font-size: 12.5px; color: var(--mist); margin-top: 3px; }
+  .plies { list-style: none; margin: 0; padding: 6px 8px 12px; overflow-y: auto; flex: 1 1 auto; min-height: 0; }
+  .ply { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 2px 8px; padding: 9px 8px; border-radius: 10px; cursor: pointer; border: 1px solid transparent; }
+  .ply:hover { background: var(--slate); }
+  .ply.now { background: var(--raise); border-color: var(--line); }
+  .ply.future { opacity: .55; }
+  .ply .n { font: 500 11px/1.6 var(--mono); color: var(--faint); grid-row: span 2; }
+  .ply .head { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; font: 500 12px/1.4 var(--mono); color: var(--mist); }
+  .ply .head .mv { color: var(--ink); }
+  .chip { font: 600 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 3px 6px; border-radius: 5px; }
+  .ply.s0 .chip.side { background: rgba(240, 183, 105, .14); color: var(--amber); }
+  .ply.s1 .chip.side { background: rgba(141, 212, 237, .13); color: var(--ice); }
+  .chip.goal { background: rgba(251, 253, 255, .1); color: var(--spark); }
+  .chip.fum { background: rgba(240, 138, 122, .15); color: var(--bad); }
+  .ply .txt { font-size: 13.5px; line-height: 1.45; }
+  .ply .txt.note { color: var(--mist); font-size: 12.5px; }
+
+  .caption { min-height: 66px; display: grid; gap: 4px; align-content: center; border-left: 3px solid var(--faint); padding: 6px 0 6px 14px; margin-block: 8px 4px; }
+  .caption.s0 { border-left-color: var(--amber); }
+  .caption.s1 { border-left-color: var(--ice); }
+  .caption .who { font: 500 11px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mist); }
+  .caption .who b { color: var(--ink); font-weight: 500; }
+  .caption .said { font-size: 16px; line-height: 1.45; }
+  .caption .said:empty { display: none; }
+
+  .transport { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 10px; align-items: center; padding-block: 6px 14px; }
+  .buttons { display: flex; gap: 6px; }
+  .tbtn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--line); background: var(--slate); color: var(--ink); cursor: pointer; }
+  .tbtn:hover { background: var(--raise); }
+  .tbtn.play { width: 46px; background: var(--ink); color: var(--night); border-color: var(--ink); }
+  .tbtn svg { width: 16px; height: 16px; fill: currentColor; }
+  .ticks { display: flex; align-items: flex-end; gap: 2px; height: 36px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .ticks::-webkit-scrollbar { display: none; }
+  .tick { flex: 1 0 6px; max-width: 16px; height: 9px; border: 0; padding: 0; border-radius: 2px; cursor: pointer; opacity: .4; background: var(--mist); }
+  .tick.s0 { background: var(--amber); }
+  .tick.s1 { background: var(--ice); }
+  .tick.goal { box-shadow: inset 0 3px 0 var(--spark); }
+  .tick.fumble { background: var(--bad); }
+  .tick.done { opacity: .95; }
+  .tick.now { outline: 2px solid var(--spark); outline-offset: 1px; opacity: 1; }
+  .pill-btn { font: 500 12px/1 var(--mono); color: var(--mist); background: var(--slate); border: 1px solid var(--line); border-radius: 10px; height: 38px; padding: 0 12px; cursor: pointer; white-space: nowrap; }
+  .pill-btn:hover, .pill-btn[aria-pressed="true"] { color: var(--ink); background: var(--raise); }
+
+  .playbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; padding-block: 12px 14px; }
+  .playbar .status { flex: 1 1 220px; min-width: 0; }
+  .acts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .btn { font-weight: 600; font-size: 14px; color: var(--ink); background: var(--slate); border: 1px solid var(--line); border-radius: 10px; padding: 10px 15px; cursor: pointer; }
+  .btn:hover { background: var(--raise); }
+  .btn.primary { background: var(--amber); color: #1c1206; border-color: var(--amber); }
+  .btn:disabled { opacity: .45; cursor: default; }
+
+  /* Players card, over the board */
+  .setup { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(400px, calc(100% - 32px)); max-height: calc(100% - 20px); overflow-y: auto; display: grid; gap: 12px; padding: 20px; background: rgba(7, 13, 21, .9); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+  .setup-title { font: 900 30px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+  .setup-result { font: 800 19px/1.15 var(--display); text-transform: uppercase; letter-spacing: .03em; color: var(--spark); }
+  .seat { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 10px; }
+  .seat label { font: 600 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+  .seat label::before { content: ""; width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .seat.a label { color: var(--amber); }
+  .seat.a label::before { background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+  .seat.b label { color: var(--ice); }
+  .seat.b label::before { background: var(--ice); box-shadow: 0 0 10px var(--ice); }
+  .seat select { width: 100%; font-size: 14px; }
+  .setup-acts { display: flex; gap: 8px; margin-top: 4px; }
+  .btn.wide { flex: 1; padding: 13px 16px; font-size: 15px; }
+  .setup-note { font-size: 12.5px; color: var(--mist); }
+  .linkish { background: none; border: 0; padding: 0; color: var(--mist); text-decoration: underline; text-underline-offset: 3px; font-size: 13px; cursor: pointer; justify-self: start; }
+  .linkish:hover { color: var(--ink); }
+
+  /* ---------- About drawer: everything to read, hidden until asked for ---------- */
+  dialog.drawer { margin: 0 0 0 auto; height: 100%; max-height: 100%; width: min(820px, 100%); max-width: 100%; padding: 0; border: 0; border-left: 1px solid var(--line); background: var(--night); color: var(--ink); overflow: hidden; }
+  dialog.drawer::backdrop { background: rgba(3, 7, 12, .6); backdrop-filter: blur(2px); }
+  .drawer-inner { height: 100%; overflow-y: auto; padding: 0 clamp(16px, 4vw, 40px) 48px; overscroll-behavior: contain; }
+  .drawer-close { position: sticky; top: 0; z-index: 2; display: flex; justify-content: flex-end; padding-block: 14px 0; margin-bottom: -38px; pointer-events: none; }
+  .drawer-close button { pointer-events: auto; }
+  .d-sec { padding-block: 36px 4px; border-top: 1px solid var(--line-soft); margin-top: 36px; }
+  .d-sec:first-of-type { border-top: 0; margin-top: 0; }
+  .eyebrow { font: 500 12px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mist); display: flex; gap: 10px; align-items: center; }
+  .eyebrow::before { content: ""; width: 26px; height: 2px; background: linear-gradient(90deg, var(--amber), var(--ice)); border-radius: 2px; }
+  .title { font: 900 clamp(52px, 9vw, 96px)/.84 var(--display); letter-spacing: -.005em; text-transform: uppercase; margin-top: 14px; }
+  .title .of { font-size: .42em; letter-spacing: .08em; color: var(--mist); font-weight: 600; }
+  .lede { font-size: 17px; line-height: 1.55; margin-top: 18px; max-width: 40em; }
+  .lede strong { font-weight: 600; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .fact { font: 500 12px/1 var(--mono); color: var(--mist); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: var(--slate); }
+  .fact b { color: var(--ink); font-weight: 500; }
+  .headline-result { margin-top: 22px; display: grid; gap: 6px; border-left: 2px solid var(--amber); padding: 4px 0 4px 16px; }
+  .headline-result .k { font: 500 11px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+  .headline-result .v { font: 800 26px/1.1 var(--display); text-transform: uppercase; }
+  .headline-result .n { color: var(--mist); font-size: 14px; }
+  .d-sec h2 { font: 900 clamp(34px, 5vw, 48px)/.92 var(--display); text-transform: uppercase; }
+  .d-sec .intro { color: var(--mist); max-width: 44em; margin-top: 10px; margin-bottom: 18px; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--deep); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line-soft); white-space: nowrap; }
+  th { font: 500 11px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--faint); background: #0d1824; }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-feature-settings: "tnum"; }
+  tr:last-child td { border-bottom: 0; }
+  .standings table { min-width: 620px; }
+  .pname { font: 800 17px/1 var(--display); letter-spacing: .03em; text-transform: uppercase; }
+  .ptype { font: 500 11px/1.4 var(--mono); color: var(--faint); letter-spacing: .06em; }
+  .pill { display: inline-block; font: 600 10px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 5px 8px; border-radius: 6px; }
+  .pill.upcoming { background: rgba(141, 212, 237, .12); color: var(--ice); }
+  .pts-bar { display: inline-block; width: 56px; height: 6px; border-radius: 3px; background: var(--line); vertical-align: middle; margin-left: 10px; overflow: hidden; }
+  .pts-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--amber), var(--ice)); }
+  .matrix table { min-width: 420px; font-size: 13px; }
+  .matrix td, .matrix th { padding: 9px 10px; }
+  .wdl { font-family: var(--mono); font-feature-settings: "tnum"; }
+  .wdl .d, .wdl .l { color: var(--faint); }
+  .matches { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .mcard { text-align: left; color: inherit; background: var(--deep); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; cursor: pointer; display: grid; gap: 10px; }
+  .mcard:hover { border-color: #33475c; background: #0d1826; }
+  .mcard .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .mcard .side { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .mcard .side i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .mcard .side.a i { background: var(--amber); }
+  .mcard .side.b i { background: var(--ice); }
+  .mcard .side span { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mcard .score { font: 900 24px/1 var(--display); font-feature-settings: "tnum"; }
+  .mcard .meta { font: 500 12px/1.3 var(--mono); color: var(--faint); display: flex; justify-content: space-between; gap: 10px; border-top: 1px solid var(--line-soft); padding-top: 10px; }
+  .mcard .won { color: var(--spark); }
+  .mcard .tag { font: 600 10px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; }
+  .rules { border: 1px solid var(--line); border-radius: var(--radius); background: var(--deep); padding: clamp(16px, 3vw, 28px); }
+  .rules h1 { display: none; }
+  .rules h2 { font: 800 21px/1.1 var(--display); text-transform: uppercase; letter-spacing: .04em; margin: 24px 0 10px; }
+  .rules h2:first-of-type { margin-top: 0; }
+  .rules p, .rules li { color: var(--soft); font-size: 15px; max-width: 66ch; }
+  .rules p + p { margin-top: 10px; }
+  .rules ul, .rules ol { padding-left: 20px; margin: 10px 0; display: grid; gap: 6px; }
+  .rules code, .method code { font-family: var(--mono); font-size: .9em; background: var(--raise); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; overflow-wrap: anywhere; }
+  .rules .table-wrap { margin: 12px 0; }
+  .rules td, .rules th { white-space: normal; }
+  .method { display: grid; gap: 16px; }
+  .method .item { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 6px; }
+  .method .item h3 { font: 800 18px/1.1 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+  .method .item p { color: var(--soft); font-size: 15px; }
+  details.prompt { border: 1px solid var(--line); border-radius: var(--radius); background: var(--deep); margin-top: 16px; }
+  details.prompt summary { cursor: pointer; padding: 14px 18px; font-weight: 600; }
+  details.prompt pre { margin: 0; padding: 0 18px 18px; font: 12.5px/1.55 var(--mono); color: var(--soft); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 480px; overflow-y: auto; }
+  .next-box { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: radial-gradient(120% 140% at 0% 0%, rgba(240, 183, 105, .1), transparent 55%), radial-gradient(120% 140% at 100% 100%, rgba(141, 212, 237, .1), transparent 55%), var(--deep); display: grid; gap: 10px; }
+  .next-box h2 { font-size: clamp(30px, 4vw, 40px); }
+  .next-box p { color: var(--soft); }
+  .foot { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--faint); font: 500 12px/1.6 var(--mono); display: grid; gap: 4px; }
+
+  @media (max-width: 560px) {
+    .bar { gap: 8px; }
+    .modes button { padding: 8px 12px; }
+    .team { padding: 6px 8px; gap: 6px; }
+    .team .name { font-size: 13px; }
+    .team .pts { font-size: 26px; }
+    .clock { min-width: 54px; padding: 6px 8px; }
+    .transport { grid-template-columns: minmax(0, 1fr) auto auto; }
+    .transport .ticks { grid-column: 1 / -1; grid-row: 2; }
+    .caption .said { font-size: 15px; }
+    .big-play { width: 72px; height: 72px; }
+    .moves { left: 8px; right: 8px; width: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .thinking .dot { animation: none; }
+    .big-play { transition: none; }
+  }
+</style>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+} }
+</script>
+
+<div class="app">
+  <div class="rim bar">
+    <div class="modes" role="group" aria-label="Mode">
+      <button type="button" id="mode-battle" aria-pressed="true">Battle</button>
+      <button type="button" id="mode-watch" aria-pressed="false">Watch</button>
+    </div>
+    <div class="grow"><select id="match-select" aria-label="Match" hidden></select></div>
+    <button class="icon-btn" type="button" id="btn-info" aria-label="About this league" aria-haspopup="dialog">i</button>
+  </div>
+
+  <div class="rim">
+    <div class="scorebug" aria-live="polite">
+      <div class="team a" id="team-a"><span class="bar-c"></span><span class="name" id="name-a">Amber</span><span class="pts" id="pts-a">0</span></div>
+      <div class="clock"><span class="k">Turn</span><span class="v" id="turn-v">0</span></div>
+      <div class="team b" id="team-b"><span class="bar-c"></span><span class="name" id="name-b">Blue</span><span class="pts" id="pts-b">0</span></div>
+    </div>
+  </div>
+
+  <div class="stage-wrap">
+    <div class="stage" id="stage"></div>
+    <div class="thinking" id="thinking" hidden><span class="dot"></span><span id="thinking-text"></span></div>
+    <button class="big-play" type="button" id="big-play" aria-label="Play the match" hidden><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg></button>
+    <div class="setup" id="setup">
+      <p class="setup-result" id="setup-result" hidden></p>
+      <h2 class="setup-title">Pick your players</h2>
+      <div class="seat a"><label for="seat-0">Amber</label><select id="seat-0"></select></div>
+      <div class="seat b"><label for="seat-1">Blue</label><select id="seat-1"></select></div>
+      <div class="setup-acts">
+        <button class="btn primary wide" type="button" id="btn-begin">Start the battle</button>
+        <button class="btn" type="button" id="btn-swap" aria-label="Swap sides" title="Swap sides">⇄</button>
+      </div>
+      <p class="setup-note" id="setup-note">Claude players run on your own Claude account. The first Claude move asks your permission.</p>
+      <button class="linkish" type="button" id="btn-to-watch">or watch the league's recorded games</button>
+    </div>
+    <aside class="moves" id="moves" hidden aria-label="Moves">
+      <div class="moves-head">
+        <div><h2 id="rail-title">Moves</h2><p id="rail-sub"></p></div>
+        <button class="icon-btn" type="button" id="moves-close" aria-label="Close moves">×</button>
+      </div>
+      <ol class="plies" id="plies"></ol>
+    </aside>
+  </div>
+
+  <div class="rim"><div class="caption" id="caption"><div class="who" id="cap-who"></div><p class="said" id="cap-said"></p></div></div>
+  <div class="rim" id="watch-controls" hidden>
+    <div class="transport">
+      <div class="buttons">
+        <button class="tbtn" type="button" id="btn-start" aria-label="Back to the start"><svg viewBox="0 0 16 16"><path d="M3 2h2v12H3zM14 2v12L6 8z"/></svg></button>
+        <button class="tbtn" type="button" id="btn-prev" aria-label="Previous turn"><svg viewBox="0 0 16 16"><path d="M12 2v12L4 8z"/></svg></button>
+        <button class="tbtn play" type="button" id="btn-play" aria-label="Play"><svg viewBox="0 0 16 16" id="play-icon"><path d="M4 2l10 6-10 6z"/></svg></button>
+        <button class="tbtn" type="button" id="btn-next" aria-label="Next turn"><svg viewBox="0 0 16 16"><path d="M4 2v12l8-6z"/></svg></button>
+      </div>
+      <div class="ticks" id="ticks" role="group" aria-label="Turns"></div>
+      <button class="pill-btn" type="button" id="btn-moves" aria-pressed="false">Moves</button>
+      <button class="pill-btn" type="button" id="btn-speed" aria-label="Playback speed">1×</button>
+    </div>
+  </div>
+
+  <div class="rim playbar" id="battlebar">
+    <p class="status" id="battle-status" aria-live="polite">Pick who plays each side, then start.</p>
+    <div class="acts">
+      <button class="btn primary" type="button" id="btn-flip" hidden disabled>Flip</button>
+      <button class="btn" type="button" id="btn-pass" hidden>Pass</button>
+      <button class="pill-btn" type="button" id="btn-moves-live" aria-pressed="false" hidden>Moves</button>
+      <button class="btn" type="button" id="btn-pause" hidden>Pause</button>
+      <button class="btn" type="button" id="btn-new" hidden>New battle</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="drawer" id="info" aria-label="About Out of Distribution">
+  <div class="drawer-inner">
+    <div class="drawer-close"><button class="icon-btn" type="button" id="info-close" aria-label="Close">×</button></div>
+
+    <section class="d-sec">
+      <p class="eyebrow">A league for games no model has seen</p>
+      <h1 class="title">Out <span class="of">of</span><br>Distribution</h1>
+      <p class="lede">AI models play <strong>Afterlight</strong>, a strategy game GPT-6 Astra invented on September 5, 2026. It has never been published, so no model has seen it in training. Each player gets the rulebook and the board as text, and has to work out the rest itself. In Battle, you pick the players: your own Claude, the game's bot, or you.</p>
+      <div class="facts" id="facts"></div>
+      <div class="headline-result" id="headline" hidden></div>
+    </section>
+
+    <section class="d-sec standings" aria-labelledby="standings-h">
+      <h2 id="standings-h">Standings</h2>
+      <p class="intro">Every pairing is played once with each side moving first. A win is worth 1 point and a draw ½. Think is the average wall-clock seconds per move, including retries. Tokens is the average output tokens per move, reasoning included.</p>
+      <div class="table-wrap"><table id="standings-table"></table></div>
+    </section>
+
+    <section class="d-sec" aria-labelledby="yard-h">
+      <h2 id="yard-h">The yardstick</h2>
+      <p class="intro" id="bot-note"></p>
+      <div class="table-wrap matrix"><table id="ladder-table"></table></div>
+    </section>
+
+    <section class="d-sec" aria-labelledby="matches-h">
+      <h2 id="matches-h">Every match</h2>
+      <p class="intro">Pick one to watch it.</p>
+      <div class="matches" id="match-cards"></div>
+    </section>
+
+    <section class="d-sec" aria-labelledby="rules-h">
+      <h2 id="rules-h">The rulebook</h2>
+      <p class="intro">The complete text every model receives, word for word, before the position. Nothing else about the game is explained.</p>
+      <article class="rules" id="rules"></article>
+    </section>
+
+    <section class="d-sec" aria-labelledby="method-h">
+      <h2 id="method-h">How it's run</h2>
+      <div class="method" id="method" style="margin-top:16px"></div>
+      <details class="prompt"><summary>Show the exact prompt for turn one</summary><pre id="example-prompt"></pre></details>
+    </section>
+
+    <section class="d-sec">
+      <div class="next-box">
+        <h2>Round two: home and away</h2>
+        <p>GPT-6 Astra designed Afterlight. Next, Claude Opus 5.5 designs a game of its own, and both models play both. The question for round two: does a model do better at a game it invented?</p>
+      </div>
+      <div class="foot"><span>Out of Distribution · a league by Chris DiMarco, built with Claude</span><span id="foot-hash"></span></div>
+    </section>
+  </div>
+</dialog>
+
+<script type="module" src="app.js"></script>

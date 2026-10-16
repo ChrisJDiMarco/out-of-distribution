@@ -1,0 +1,27 @@
+node_modules/
+.next/
+.vercel/
+.wrangler/
+.cache/
+.turbo/
+.parcel-cache/
+coverage/
+__pycache__/
+.venv/
+venv/
+.DS_Store
+*.log
+*.app/
+*.dmg
+*.pkg
+.env
+.env.*
+*.pem
+*.p12
+*.key
+credentials*.json
+auth.json
+
+# Build output (regenerate with: node site/build.mjs)
+site/dist/
+site/preview/
